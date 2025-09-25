@@ -1,0 +1,19 @@
+@startuml
+left to right direction
+actor Usuario
+actor Admin
+
+rectangle "LeituraPlay" {
+Usuario --> (Cadastrar-se)
+Usuario --> (Fazer Login)
+Usuario --> (Ler livros)
+Usuario --> (Indicar livros)
+Usuario --> (Avaliar livros)
+Usuario --> (Ver Estatísticas)
+Usuario --> (Participar de Comunidades)
+
+Admin --> (Gerenciar Usuários)
+Admin --> (Gerenciar Livros)
+Admin --> (Gerenciar Comunidades)
+
+@enduml

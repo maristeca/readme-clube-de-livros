@@ -1,0 +1,39 @@
+@startuml m
+entity Usuario {
++id_usuario : int
+nome : string
+email : string
+senha : string
+}
+
+entity Livro {
++id_livro : int
+titulo : string
+autor : string
+genero : string
+}
+
+entity Indicacao {
++id_indicacao : int
+comentario : string
+id_usuario : int <> id_livro : int <> }
+
+entity Avaliacao {
++id_avaliacao : int
+nota : int
+comentario : string
+id_usuario : int <> id_livro : int <> }
+
+entity Comunidade {
++id_comunidade : int
+nome : string
+descricao : string
+id_usuario : int <> }
+
+Usuario ||--o{ Indicacao
+Usuario ||--o{ Avaliacao
+Usuario }o--o{ Comunidade
+Livro ||--o{ Indicacao
+Livro ||--o{ Avaliacao
+
+@enduml
