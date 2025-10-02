@@ -1,0 +1,138 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Fundo geral */
+body {
+  background: #FFF9C4; /* amarelo pastel */
+  color: #4A148C; /* roxo escuro */
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #6A1B9A; /* roxo */
+  padding: 15px 30px;
+  color: white;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Menu */
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.menu a:hover {
+  text-decoration: underline;
+}
+
+/* Conteúdo */
+.conteudo {
+  padding: 30px;
+  text-align: center;
+}
+
+/* Botões */
+button, .btn {
+  border: none;
+  padding: 12px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: 0.3s;
+}
+
+/* Botão roxo (Entrar) */
+.btn-roxo {
+  background: #6A1B9A;
+  color: white;
+}
+.btn-roxo:hover {
+  background: #4A148C;
+}
+
+/* Botão branco (Cadastrar) */
+.btn-branco {
+  background: white;
+  color: #6A1B9A;
+  border: 2px solid #6A1B9A;
+}
+.btn-branco:hover {
+  background: #F3E5F5;
+}
+
+/* Botão Google */
+.btn-google {
+  background: white;
+  color: #333;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.btn-google img {
+  width: 20px;
+}
+
+/* Cards */
+.card {
+  border: none;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 500px;
+  text-align: left;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+  margin-bottom: 10px;
+  color: #6A1B9A;
+}
+
+/* Tags de gênero */
+.tag {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+}
+.tag-romance { background: #F8BBD0; color: #AD1457; }
+.tag-ficcao { background: #BBDEFB; color: #0D47A1; }
+.tag-infantil { background: #C8E6C9; color: #1B5E20; }
+
+/* Rodapé */
+.rodape {
+  background: #6A1B9A;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 30px;
+}
