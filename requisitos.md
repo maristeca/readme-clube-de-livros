@@ -1,45 +1,45 @@
 **Disciplina:** Programação Web, Projeto e Desenvolvimento de Sistemas, Banco de Dados II
 
-**Alunos:** 
+**Alunos:** Maria Clara Sanagioto, Maria Estela, Mariana
 
 **Professores:** Camila Santos, Eudóxia Moura, Marcos Faino
+
 # Descrição Geral do Sistema
 
-O sistema de lanchonete tem como objetivo gerenciar pedidos, produtos, clientes e pagamentos de forma eficiente e automatizada. Ele permite que clientes realizem pedidos online ou presencialmente, acompanhem o status dos pedidos e efetuem pagamentos. Os funcionários podem gerenciar o cardápio, controlar estoque, registrar vendas e emitir relatórios.
+O sistema **LeituraPlay** tem como objetivo permitir que usuários registrem, consultem e compartilhem indicações de livros de forma organizada e intuitiva. Ele possibilita que cada usuário cadastre um livro com título, autor e comentário/motivo da indicação, visualize todas as recomendações, participe de comunidades de leitura e avalie livros. Os administradores podem gerenciar usuários, livros e comunidades.
 
 ## Pesquisa Desk
 
-Levantamento de requisitos realizado por meio de entrevistas com funcionários, clientes e análise de sistemas similares. Foram identificadas necessidades de agilidade no atendimento, controle de estoque, facilidade de pagamento e acompanhamento dos pedidos.
+Levantamento de requisitos realizado por meio de entrevistas com leitores, análise de aplicativos de recomendações literárias e plataformas de leitura online. Foram identificadas necessidades de fácil cadastro, organização das indicações, possibilidade de interação entre usuários e controle administrativo eficiente.
 
-## Atores / Personas 
+## Atores / Personas
 
-- **Cliente:** Realiza pedidos, acompanha o status e efetua pagamentos.
-- **Atendente:** Recebe pedidos, registra vendas e auxilia clientes.
-- **Gerente:** Gerencia produtos, estoque, funcionários e acessa relatórios.
-- **Cozinheiro:** Visualiza pedidos em produção e atualiza status de preparo.
+* **Usuário Leitor:** Cadastra indicações de livros, avalia obras, participa de comunidades e consulta estatísticas.
+* **Administrador:** Gerencia usuários, livros e comunidades, garantindo integridade e organização do sistema.
 
-# Requistos Funcionais (CASOS DE USO)
+# Requisitos Funcionais (CASOS DE USO)
 
-- Permitir cadastro, edição e exclusão de produtos do cardápio.
-- Permitir cadastro de clientes.
-- Realizar pedidos (seleção de produtos, quantidade, observações).
-- Consultar status do pedido (em preparo, pronto, entregue).
-- Gerenciar estoque de produtos.
-- Registrar pagamentos (dinheiro, cartão, pix).
-- Emitir relatórios de vendas e estoque.
-- Notificar clientes sobre status do pedido.
-- Gerenciar usuários do sistema (atendentes, gerente, cozinheiro).
+* Permitir **cadastro de usuários**.
+* Permitir **autenticação e login** de usuários.
+* Permitir **cadastro de livros** com título, autor e gênero.
+* Permitir **indicação de livros** com comentário/motivo.
+* Permitir **avaliação de livros** com nota e comentário.
+* Listar todas as **indicações e avaliações** cadastradas.
+* Permitir **edição e exclusão** de indicações, livros e avaliações (para usuários e admin).
+* Permitir **participação em comunidades** e gerenciamento de comunidades pelo admin.
+* Permitir **visualização de estatísticas** de indicações, avaliações e participação.
 
-# Requistos Não Funcionais
+# Requisitos Não Funcionais
 
-- Interface amigável e responsiva.
-- Segurança no acesso (autenticação e autorização).
-- Disponibilidade 24/7.
-- Compatibilidade com dispositivos móveis.
-- Backup automático dos dados.
-- Tempo de resposta inferior a 2 segundos por operação.
+* Interface amigável, responsiva e compatível com dispositivos móveis.
+* Segurança no acesso (autenticação, autorização e gerenciamento de permissões).
+* Disponibilidade do sistema 24/7.
+* Backup automático do banco de dados SQLite.
+* Tempo de resposta inferior a 2 segundos por operação.
+* Sistema leve e de fácil manutenção, desenvolvido em **Flask + Python 3.x**.
 
 # Referências
-- Livros
-- Sites
-- Aplicativos
+
+* Livros sobre Flask, Python e Banco de Dados.
+* Documentação oficial do Flask e SQLAlchemy.
+* Aplicativos de leitura e recomendações literárias (como Goodreads e Skoob).
