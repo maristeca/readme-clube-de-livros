@@ -42,4 +42,4 @@ Levantamento de requisitos realizado por meio de entrevistas com leitores, anál
 
 * Livros sobre Flask, Python e Banco de Dados.
 * Documentação oficial do Flask e SQLAlchemy.
-* Aplicativos de leitura e recomendações literárias (como Goodreads e Skoob).
+* Aplicativos de leitura e recomendações literárias (como Goodreads e Skoob.).
