@@ -1,0 +1,133 @@
+:root{
+  --fundo-amarelo: #FFF9C4;
+  --roxo-principal: #6A1B9A;
+  --roxo-texto: #4A148C;
+  --roxo-claro: #F3E5F5;
+  --tag-romance: #F8BBD0;
+  --tag-ficcao: #BBDEFB;
+  --tag-infantil: #C8E6C9;
+  --tag-biografia: #E1BEE7;
+  --tag-aventura: #FFECB3;
+  --tag-juvenil: #B3E5FC;
+}
+
+/* Global */
+*{box-sizing:border-box}
+body{
+  background: var(--fundo-amarelo);
+  color: var(--roxo-texto);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  min-height:100vh;
+}
+
+/* Topo desktop */
+.navbar-app{
+  background: var(--roxo-principal) !important;
+  color: #fff;
+  padding: .6rem 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,.08);
+}
+.navbar-app .nav-link{ color: #fff !important; }
+
+/* Mobile bottom nav */
+.navbar-bottom{
+  background: var(--fundo-amarelo);
+  border-top: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.04);
+}
+.navbar-bottom .nav-link{ color: var(--roxo-texto); font-size: .9rem; opacity: .7; }
+.navbar-bottom .nav-link.active{ color: var(--roxo-principal); opacity: 1; }
+
+/* Cards de conteúdo */
+.card-indica{
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  border: none;
+  overflow: hidden;
+}
+
+/* titulos */
+.text-roxo-texto{ color: var(--roxo-texto); }
+
+/* botões */
+.btn-roxo{
+  background: var(--roxo-principal);
+  color: #fff;
+  border-radius: 30px;
+  font-weight: 700;
+  padding: .6rem 1rem;
+  border: none;
+}
+.btn-roxo:hover{ background: #4A148C; }
+
+/* botão google */
+.btn-google{
+  background: #fff;
+  color: #333;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 30px;
+  padding: .5rem .9rem;
+}
+
+/* form controls */
+.form-control{
+  border-radius: 12px;
+  border: 1px solid var(--roxo-principal);
+  padding: .7rem .8rem;
+}
+
+/* form inputs com ícone à esquerda */
+.input-with-icon{
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+}
+.input-with-icon i{
+  color: var(--roxo-principal);
+  font-size: 1.05rem;
+}
+
+/* tags de livro */
+.tag-livro{
+  display:inline-block;
+  padding:.35rem .75rem;
+  border-radius: 20px;
+  font-size:.78rem;
+  font-weight:600;
+  margin-right:.5rem;
+  margin-top:.35rem;
+}
+.tag-romance{ background: var(--tag-romance); color:#AD1457;}
+.tag-ficcao{ background: var(--tag-ficcao); color:#0D47A1;}
+.tag-infantil{ background: var(--tag-infantil); color:#1B5E20;}
+.tag-biografia{ background: var(--tag-biografia); color:#4527A0;}
+.tag-aventura{ background: var(--tag-aventura); color:#E65100;}
+.tag-juvenil{ background: var(--tag-juvenil); color:#01579B;}
+
+/* perfil avatar */
+.perfil-avatar{
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  border:5px solid var(--roxo-principal);
+  object-fit:cover;
+}
+
+/* cartão de autenticação (login/cadastro) */
+.card-auth{
+  background: linear-gradient(180deg, rgba(255,255,255,0.95), #ffffff);
+  border-radius: 14px;
+}
+
+/* tipografia principal do título */
+.title-main{
+  color: var(--roxo-texto);
+  font-weight: 800;
+}
+
+/* responsividade */
+@media (max-width: 767px){
+  .navbar-app{ display:none !important; }
+  .rodape-app{ display:none !important; }
+}
