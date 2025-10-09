@@ -11,7 +11,7 @@
   --tag-juvenil: #B3E5FC;
 }
 
-/* Global */
+
 *{box-sizing:border-box}
 body{
   background: var(--fundo-amarelo);
