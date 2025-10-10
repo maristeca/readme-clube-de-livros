@@ -5,8 +5,10 @@
   --roxo-claro: #F3E5F5;
 }
 
-/* Reset e tipografia */
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
+
 body {
   background: var(--fundo-amarelo);
   color: var(--roxo-texto);
@@ -15,86 +17,108 @@ body {
   display: flex;
   flex-direction: column;
 }
-.container { flex-grow: 1; }
 
-/* Navbar */
-.navbar { background-color: var(--roxo-principal) !important; }
-.navbar .nav-link { color: #fff !important; transition: all 0.3s; }
-.navbar .nav-link:hover { color: color-mix(in srgb, var(--roxo-claro), transparent 20%) !important; }
+.container {
+  flex-grow: 1;
+}
 
-/* Avatar na Navbar */
+.navbar {
+  background-color: var(--roxo-principal) !important;
+}
+
+.navbar .nav-link {
+  color: #fff !important;
+  transition: all 0.3s;
+}
+
+.navbar .nav-link:hover {
+  color: color-mix(in srgb, var(--roxo-claro), transparent 20%) !important;
+}
+
 .avatar-nav {
-  width: 30px; 
-  height: 30px; 
-  border-radius: 50%; 
-  object-fit: cover; 
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
   border: 2px solid white;
 }
 
-/* Cards de livros (geral) */
-.card { border-radius: 12px; box-shadow: 0 6px 18px rgba(0,0,0,0.06); }
-.card-indica { background-color: #ffffff; border: none; }
-.card-title-roxo { color: var(--roxo-texto); font-weight: 700; }
-
-/* --- AJUSTES VISUAIS SOLICITADOS --- */
-
-/* 1. Capa do Livro (Formato 3:4) */
-.book-cover-container {
-    /* Define uma altura máxima para o container do livro no card */
-    max-height: 220px; 
+.card {
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
 }
+
+.card-indica {
+  background-color: #ffffff;
+  border: none;
+}
+
+.card-title-roxo {
+  color: var(--roxo-texto);
+  font-weight: 700;
+}
+
+
+.book-cover-container {
+
+  max-height: 220px;
+}
+
 .book-cover {
   width: 100%;
-  object-fit: cover; 
+  object-fit: cover;
   border-radius: 8px !important;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  /* CRUCIAL: Usa proporção 3:4 (largura:altura) para parecer uma capa de livro real */
-  aspect-ratio: 3 / 4; 
-  height: auto; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  aspect-ratio: 3 / 4;
+  height: auto;
   min-height: 150px;
 }
 
-/* 2. Avatar perfil (Redondo e Clicável) */
-.perfil-avatar { 
-  width: 150px; 
-  height: 150px; 
-  border-radius: 50%; /* Faz a imagem ficar redonda */
-  border: 6px solid var(--roxo-principal); 
-  object-fit: cover; /* Garante que a imagem preencha o círculo sem distorção */
+.perfil-avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 6px solid var(--roxo-principal);
+  object-fit: cover;
   cursor: pointer;
 }
 
-/* 3. Ícone para alterar o avatar */
 .avatar-edit-icon {
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
-    background-color: var(--roxo-principal);
-    color: white;
-    border-radius: 50%;
-    width: 35px;
-    height: 35px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-    transition: background-color 0.2s;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  background-color: var(--roxo-principal);
+  color: white;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s;
 }
+
 .avatar-edit-icon:hover {
-    background-color: var(--roxo-texto);
+  background-color: var(--roxo-texto);
 }
 
-/* --- OUTROS ESTILOS --- */
 
-/* Badges/Tags */
-.badge { font-weight: 600; margin-right: 5px; margin-top: 5px; padding: 0.5em 0.8em; border-radius: 12px; }
-.tag-livro { 
-  background-color: var(--roxo-claro); 
-  color: var(--roxo-texto); 
+.badge {
+  font-weight: 600;
+  margin-right: 5px;
+  margin-top: 5px;
+  padding: 0.5em 0.8em;
+  border-radius: 12px;
 }
 
-/* Truncamento de texto para Feed/Perfil (Descrição) */
+.tag-livro {
+  background-color: var(--roxo-claro);
+  color: var(--roxo-texto);
+}
+
 .text-truncate-3 {
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -103,7 +127,6 @@ body {
   text-overflow: ellipsis;
 }
 
-/* Botões */
 .btn-roxo {
   background-color: var(--roxo-principal);
   color: #fff;
@@ -112,157 +135,158 @@ body {
   border: none;
   transition: all 0.3s;
 }
-.btn-roxo:hover { background-color: var(--roxo-texto); color: #fff; transform: translateY(-1px); }
 
-/* Responsividade */
+.btn-roxo:hover {
+  background-color: var(--roxo-texto);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
 @media (max-width: 767px) {
-  .navbar .nav-link { text-align: center; }
-  .navbar-nav .dropdown-menu { text-align: center; }
-  
-  .book-cover { 
-    /* Ajuste para telas menores */
-    height: 140px; 
-    min-height: 140px; 
+  .navbar .nav-link {
+    text-align: center;
+  }
+
+  .navbar-nav .dropdown-menu {
+    text-align: center;
+  }
+
+  .book-cover {
+
+    height: 140px;
+    min-height: 140px;
     object-fit: cover;
   }
 }
-/* Variáveis de Cores */
+
 :root {
-    --roxo-principal: #6a1b9a; /* Roxo mais escuro (como o navbar) */
-    --roxo-texto: #5b0f81; /* Um pouco mais claro para títulos */
-    --fundo-amarelo: #fffde7; /* Amarelo claríssimo */
-    --roxo-claro: #9575cd; /* Para tags e botões secundários */
+  --roxo-principal: #6a1b9a;
+  --roxo-texto: #5b0f81;
+  --fundo-amarelo: #fffde7;
+  --roxo-claro: #9575cd;
 }
 
 body {
-    background-color: var(--fundo-amarelo);
-    font-family: 'Inter', sans-serif;
+  background-color: var(--fundo-amarelo);
+  font-family: 'Inter', sans-serif;
 }
 
-/* --- Estilos Gerais --- */
 
 .btn-roxo {
-    background-color: var(--roxo-principal);
-    color: white;
-    border: none;
-    border-radius: 25px;
-    padding: 10px 20px;
-    transition: background-color 0.3s;
+  background-color: var(--roxo-principal);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  transition: background-color 0.3s;
 }
 
 .btn-roxo:hover {
-    background-color: #5b0f81;
-    color: white;
+  background-color: #5b0f81;
+  color: white;
 }
 
-/* Corrigido para cor de texto */
 .text-roxo-texto {
-    color: var(--roxo-texto) !important;
+  color: var(--roxo-texto) !important;
 }
 
 .card-title-roxo {
-    color: var(--roxo-texto);
+  color: var(--roxo-texto);
 }
 
-/* --- Navbar e Footer --- */
 .navbar-custom {
-    background-color: var(--roxo-principal);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: var(--roxo-principal);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.navbar-brand, .nav-link, .dropdown-toggle {
-    color: white !important;
-    font-weight: bold;
+.navbar-brand,
+.nav-link,
+.dropdown-toggle {
+  color: white !important;
+  font-weight: bold;
 }
 
 .nav-link:hover {
-    color: #ffd54f !important;
+  color: #ffd54f !important;
 }
 
-/* --- Container e Cards --- */
 .container {
-    padding-top: 20px;
-    padding-bottom: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .card-indica {
-    border-radius: 12px;
-    border: none;
-    transition: transform 0.2s;
+  border-radius: 12px;
+  border: none;
+  transition: transform 0.2s;
 }
 
 .card-indica:hover {
-    transform: translateY(-2px);
+  transform: translateY(-2px);
 }
 
-/* --- Tags/Gêneros --- */
 .tag-livro {
-    background-color: var(--roxo-claro);
-    color: white;
-    font-weight: 500;
-    padding: 0.3em 0.6em;
-    border-radius: 15px;
-    font-size: 0.75em;
-    margin-right: 5px;
+  background-color: var(--roxo-claro);
+  color: white;
+  font-weight: 500;
+  padding: 0.3em 0.6em;
+  border-radius: 15px;
+  font-size: 0.75em;
+  margin-right: 5px;
 }
 
-/* --- Capa do Livro (Corrigido para exibir a imagem inteira) --- */
 .book-cover-container {
-    /* Define uma altura máxima flexível */
-    max-height: 250px; 
+  max-height: 250px;
 }
+
 .book-cover {
-    width: 100%;
-    /* CORREÇÃO PRINCIPAL: Garante que a imagem inteira caiba sem ser cortada */
-    object-fit: contain; 
-    border-radius: 8px !important;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    /* Mantém a proporção 3:4 (largura:altura) para parecer uma capa de livro */
-    aspect-ratio: 3 / 4; 
-    height: auto; 
-    /* Adiciona um fundo para preencher o espaço vazio do 'contain' */
-    background-color: #f0f0f0; 
-    min-height: 150px;
+  width: 100%;
+  object-fit: contain;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  aspect-ratio: 3 / 4;
+  height: auto;
+  background-color: #f0f0f0;
+  min-height: 150px;
 }
 
-/* --- Avatar perfil (Redondo e com object-fit: cover) --- */
-.perfil-avatar { 
-    width: 150px; 
-    height: 150px; 
-    border-radius: 50%; /* Faz a imagem ficar redonda */
-    border: 6px solid var(--roxo-principal); 
-    object-fit: cover; /* Garante que a imagem preencha o círculo sem distorção */
-    cursor: pointer;
+.perfil-avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 6px solid var(--roxo-principal);
+  object-fit: cover;
+  cursor: pointer;
 }
 
-/* Ícone para alterar o avatar */
+
 .avatar-edit-icon {
-    position: absolute;
-    bottom: 5px;
-    right: 5px;
-    background-color: var(--roxo-principal);
-    color: white;
-    border-radius: 50%;
-    width: 35px;
-    height: 35px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  background-color: var(--roxo-principal);
+  color: white;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-/* Avatar na Navbar */
+
 .avatar-nav {
-    width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 1px solid white;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid white;
 }
 
 
-/* --- Truncamento de texto para Feed/Perfil (Descrição) --- */
+
 .text-truncate-3 {
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -271,20 +295,23 @@ body {
   text-overflow: ellipsis;
 }
 
-/* --- Media Queries (Responsividade) --- */
+
 @media (max-width: 768px) {
-    .card-indica .row {
-        flex-direction: row; 
-    }
-    .card-indica .col-4,
-    .card-indica .col-8 {
-        width: 50%; 
-        flex: none;
-    }
-    .card-indica .col-4 {
-        padding-right: 0;
-    }
-    .book-cover-container {
-        max-height: 180px;
-    }
+  .card-indica .row {
+    flex-direction: row;
+  }
+
+  .card-indica .col-4,
+  .card-indica .col-8 {
+    width: 50%;
+    flex: none;
+  }
+
+  .card-indica .col-4 {
+    padding-right: 0;
+  }
+
+  .book-cover-container {
+    max-height: 180px;
+  }
 }
