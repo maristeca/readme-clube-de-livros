@@ -4,25 +4,46 @@
 {% block content %}
 <h2 class="display-6 fw-bold text-center text-roxo-texto mb-4">Minhas Estatísticas</h2>
 <div class="row justify-content-center">
-  <div class="col-md-8">
-    <div class="card mb-3 shadow-sm border-0 text-center">
-      <div class="card-body">
-        <h5 class="card-title text-purple fw-bold">Livros lidos</h5>
-        <p class="card-text fs-3 fw-bold">10</p>
-      </div>
+    <div class="col-12 col-md-8">
+        <div class="row">
+            <!-- Livros Lidos -->
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm border-0 text-center card-stats h-100">
+                    <div class="card-body">
+                        <i class="fa-solid fa-book-open fs-2 text-roxo-texto mb-2"></i>
+                        <h5 class="card-title text-purple fw-bold">Livros Lidos</h5>
+                        <p class="card-text fs-3 fw-bold">{{ stats.lidos }}</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Indicações Feitas -->
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm border-0 text-center card-stats h-100">
+                    <div class="card-body">
+                        <i class="fa-solid fa-bullhorn fs-2 text-roxo-texto mb-2"></i>
+                        <h5 class="card-title text-purple fw-bold">Indicações Feitas</h5>
+                        <!-- CORRIGIDO: Usa a variável 'indicacoes' do dicionário 'stats' -->
+                        <p class="card-text fs-3 fw-bold">{{ stats.indicacoes }}</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Medalhas -->
+            <div class="col-md-4 mb-3">
+                <div class="card shadow-sm border-0 text-center card-stats h-100">
+                    <div class="card-body">
+                        <i class="fa-solid fa-trophy fs-2 text-roxo-texto mb-2"></i>
+                        <h5 class="card-title text-purple fw-bold">Medalhas</h5>
+                        <!-- Corrigido para exibir a contagem de medalhas -->
+                        <p class="card-text fs-3 fw-bold">{{ stats.medalhas | length }}</p>
+                        <div class="mt-2">
+                            {% for medalha in stats.medalhas %}
+                                <span class="badge bg-warning text-dark me-1 mb-1">{{ medalha }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="card mb-3 shadow-sm border-0 text-center">
-      <div class="card-body">
-        <h5 class="card-title text-purple fw-bold">Indicações feitas</h5>
-        <p class="card-text fs-3 fw-bold">1</p>
-      </div>
-    </div>
-    <div class="card mb-3 shadow-sm border-0 text-center">
-      <div class="card-body">
-        <h5 class="card-title text-purple fw-bold">Medalhas</h5>
-        <p class="card-text">Leitor dedicado</p>
-      </div>
-    </div>
-  </div>
 </div>
 {% endblock %}

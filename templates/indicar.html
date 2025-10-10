@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}Indicar Livro - LeituraPlay{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center">
+  <div class="col-12 col-md-6">
+    <h2 class="display-6 fw-bold text-roxo-texto mb-4">Indicar Livro</h2>
+
+    <form action="{{ url_for('indicar') }}" method="post" enctype="multipart/form-data">
+      <div class="mb-3">
+        <input name="titulo" type="text" class="form-control" placeholder="Título do Livro" required>
+      </div>
+      <div class="mb-3">
+        <input name="autor" type="text" class="form-control" placeholder="Autor" required>
+      </div>
+      <div class="mb-3">
+        <textarea name="descricao" class="form-control" rows="4" placeholder="Descrição/Motivo da indicação"></textarea>
+      </div>
+      <div class="mb-3">
+        <label>Gêneros (até 3)</label>
+        <select name="genero1" class="form-select mb-2" required>
+          {% for g in generos %}<option>{{ g }}</option>{% endfor %}
+        </select>
+        <select name="genero2" class="form-select mb-2">
+          <option value="">-- opcional --</option>
+          {% for g in generos %}<option>{{ g }}</option>{% endfor %}
+        </select>
+        <select name="genero3" class="form-select mb-2">
+          <option value="">-- opcional --</option>
+          {% for g in generos %}<option>{{ g }}</option>{% endfor %}
+        </select>
+      </div>
+      <div class="mb-3">
+        <label>Imagem da Capa</label>
+        <input name="imagem" type="file" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-roxo w-100">Indicar Livro</button>
+    </form>
+  </div>
+</div>
+{% endblock %}

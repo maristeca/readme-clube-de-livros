@@ -4,46 +4,100 @@
 {% block content %}
 <div class="row justify-content-center">
   <div class="col-12 col-md-8 text-center">
-    <img src="{{ user.avatar }}" class="perfil-avatar mb-3" alt="Avatar">
+    
+    <!-- Avatar do Usuário (Clique para Mudar) -->
+    <div class="position-relative d-inline-block mb-3">
+        <!-- Imagem do Avatar (redondo via CSS: .perfil-avatar) -->
+        <img src="{{ user.avatar }}" class="perfil-avatar shadow" alt="Avatar de {{ user.name }}" id="perfilAvatarImg">
+        
+        <!-- Ícone de Câmera para indicar que é clicável -->
+        <label for="hiddenAvatarInput" class="avatar-edit-icon">
+            <i class="fa-solid fa-camera"></i>
+        </label>
+    </div>
+    
+    <!-- Formulário invisível para upload POST -->
+    <form id="avatarForm" method="POST" action="{{ url_for('perfil') }}" enctype="multipart/form-data">
+        <input type="file" id="hiddenAvatarInput" name="avatar_file" accept="image/png, image/jpeg, image/gif" style="display: none;">
+    </form>
+
 
     <h2 class="h4 fw-bold text-roxo-texto">{{ user.name }}</h2>
     <p class="text-muted fst-italic mb-4">"{{ user.bio }}"</p>
 
-    <div class="row text-center mb-5">
-      <div class="col-4">
-        <h5 class="fw-bold mb-0 text-roxo-texto">10</h5>
-        <p class="small text-muted">Livros lidos</p>
-      </div>
-      <div class="col-4">
-        <h5 class="fw-bold mb-0 text-roxo-texto">1</h5>
-        <p class="small text-muted">Indicações</p>
-      </div>
-      <div class="col-4">
-        <h5 class="fw-bold mb-0 text-roxo-texto">1</h5>
-        <p class="small text-muted">Medalhas</p>
+    <!-- Cartão de Estatísticas -->
+    <div class="card p-3 mb-5 shadow-sm border-0">
+      <div class="row text-center">
+        <div class="col-4 border-end">
+          <h5 class="fw-bold mb-0 text-roxo-texto">{{ user.lidos }}</h5>
+          <p class="small text-muted">Livros lidos</p>
+        </div>
+        <div class="col-4 border-end">
+          <!-- CONTAGEM DE INDICAÇÕES -->
+          <h5 class="fw-bold mb-0 text-roxo-texto">{{ user.indicacoes }}</h5>
+          <p class="small text-muted">Indicações</p>
+        </div>
+        <div class="col-4">
+          <h5 class="fw-bold mb-0 text-roxo-texto">{{ user.medalhas | length }}</h5>
+          <p class="small text-muted">Medalhas</p>
+        </div>
       </div>
     </div>
+    
 
-    <h3 class="h5 fw-bold text-roxo-texto text-start mb-3">Minhas indicações</h3>
+    <h3 class="h5 fw-bold text-roxo-texto text-start mb-3">Minhas indicações ({{ user.books | length }})</h3>
+    
+    <!-- LISTAGEM DAS MINHAS INDICAÇÕES (Layout igual ao Feed) -->
+    {% if user.books %}
+        {% for book in user.books %}
+        <div class="card card-indica mb-4 mx-auto text-start shadow-sm">
+          <!-- ALTERAÇÃO: Adicionado 'align-items-start' e ajustado 'g-0' e preenchimentos -->
+          <div class="row g-0 align-items-start"> 
+            <!-- Estrutura de Capa de Livro (depende do style.css) -->
+            <div class="col-4 d-flex p-3 book-cover-container">
+              <img src="{{ book.img }}" class="img-fluid rounded-start book-cover" alt="Capa {{ book.title }}">
+            </div>
+            <div class="col-8">
+              <div class="card-body py-3 px-3">
+                <h5 class="card-title card-title-roxo mb-1">{{ book.title }}</h5>
+                <p class="card-text small text-muted mb-1"><strong>{{ book.author }}</strong></p>
+                <!-- Descrição -->
+                <p class="card-text small text-muted mb-2 text-truncate-3">{{ book.description }}</p>
 
-    <div class="card card-indica mb-3 mx-auto text-start">
-      <div class="row g-0">
-        <div class="col-4 d-flex align-items-center p-2">
-          <img src="{{ url_for('static', filename='img/livro3.png') }}" class="img-fluid rounded"
-            alt="Diário de Anne Frank">
-        </div>
-        <div class="col-8">
-          <div class="card-body py-2">
-            <h5 class="card-title card-title-roxo mb-1">O Diário de Anne Frank</h5>
-            <p class="card-text small text-muted mb-2">
-              Diário de uma das vítimas do holocausto, eu achei triste mas me apaixonei.
-            </p>
-            <span class="tag-livro tag-biografia">Biografia</span>
+                <div class="mb-2">
+                    {% for t in book.tags %}
+                        <span class="badge tag-livro">{{ t }}</span>
+                    {% endfor %}
+                </div>
+                
+                <!-- REMOVIDO: Ações de Compartilhamento. -->
+                <div class="mt-2 d-flex align-items-center">
+                  <span class="text-success small"><i class="fa-solid fa-check me-1"></i> Indicado por você</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
+        {% endfor %}
+    {% else %}
+        <p class="text-center text-muted">Você ainda não fez nenhuma indicação. Compartilhe um livro agora!</p>
+    {% endif %}
 
   </div>
 </div>
+
+<script>
+    // Script para lidar com a seleção e upload do Avatar
+    document.getElementById('perfilAvatarImg').addEventListener('click', function() {
+        document.getElementById('hiddenAvatarInput').click();
+    });
+
+    document.getElementById('hiddenAvatarInput').addEventListener('change', function() {
+        if (this.files.length > 0) {
+            // Submete o formulário automaticamente
+            document.getElementById('avatarForm').submit();
+        }
+    });
+</script>
+
 {% endblock %}

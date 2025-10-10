@@ -4,41 +4,47 @@
 {% block content %}
 <h2 class="display-6 fw-bold text-center text-roxo-texto mb-4">Feed Colaborativo</h2>
 
+<!-- REMOVIDO: Botões de filtro (Mantido conforme solicitado anteriormente) -->
 <div class="d-flex justify-content-center mb-4">
   <div class="btn-group" role="group" aria-label="filtros">
     <button class="btn btn-outline-secondary rounded-pill active">Todos</button>
-    <button class="btn btn-outline-secondary rounded-pill">Romance</button>
-    <button class="btn btn-outline-secondary rounded-pill">Ficção</button>
   </div>
 </div>
 
 <div class="row justify-content-center">
   <div class="col-12 col-md-8">
     {% for book in books %}
-      <div class="card card-indica mb-3">
-        <div class="row g-0">
-          <div class="col-4 d-flex align-items-center p-2">
-            <img src="{{ book.img }}" class="img-fluid rounded" alt="Capa {{ book.title }}">
+      <div class="card card-indica mb-4 shadow-sm">
+        <!-- CORREÇÃO DE ALINHAMENTO: Adicionado 'align-items-start' e ajustado 'g-0' e preenchimentos -->
+        <div class="row g-0 align-items-start"> 
+          <!-- Estrutura de Capa de Livro (depende do style.css) -->
+          <div class="col-4 d-flex p-3 book-cover-container">
+            <img src="{{ book.img }}" class="img-fluid rounded-start book-cover" alt="Capa {{ book.title }}">
           </div>
           <div class="col-8">
-            <div class="card-body py-2">
+            <div class="card-body py-3 px-3">
               <h5 class="card-title card-title-roxo mb-1">{{ book.title }}</h5>
               <p class="card-text small text-muted mb-1"><strong>{{ book.author }}</strong></p>
-              <p class="card-text small text-muted mb-2">{{ book.text }}</p>
+              
+              <!-- Descrição com Truncamento (máximo 3 linhas) -->
+              <p class="card-text small text-muted mb-2 text-truncate-3">{{ book.description }}</p>
 
-              {% for t in book.tags %}
-                <span class="tag-livro tag-{{ loop.index0 }}">{{ t }}</span>
-              {% endfor %}
+              <div class="mb-2">
+                {% for t in book.tags %}
+                  <span class="badge tag-livro">{{ t }}</span>
+                {% endfor %}
+              </div>
 
-              <div class="mt-2 d-flex gap-3 align-items-center">
-                <a class="text-decoration-none text-roxo-texto" href="#"><i class="fa-regular fa-heart"></i> Curtir</a>
-                <a class="text-decoration-none text-roxo-texto" href="#"><i class="fa-regular fa-comment"></i> Comentar</a>
+              <!-- REMOVIDO: Curtir, Comentar e Compartilhar. Apenas nome do indicador. -->
+              <div class="mt-2 d-flex align-items-center">
+                <p class="small text-muted mb-0">Indicado por: <strong>{{ book.usuario_nome }}</strong></p>
+                <!-- O bloco de COMPARTILHAR foi removido daqui -->
               </div>
             </div>
           </div>
         </div>
       </div>
-    {% endfor %}
+    {% endfor %} <!-- TAG FINALMENTE FECHADA AQUI -->
   </div>
 </div>
 {% endblock %}

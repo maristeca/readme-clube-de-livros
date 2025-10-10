@@ -21,4 +21,4 @@ Neste repositório você encontrará:
 O código-fonte completo do sistema desenvolvido em Flask
 Arquivos de configuração do banco de dados SQLite
 Templates HTML para a interface do usuário
-Documentação de requisitos e exemplos de uso das funcionalidades.
+Documentação de requisitos e exemplos de uso das funcionalidades

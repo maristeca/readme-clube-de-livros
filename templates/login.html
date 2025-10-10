@@ -1,34 +1,32 @@
 {% extends "base.html" %}
-{% block title %}Entrar - LeituraPlay{% endblock %}
+{% block title %}Login - LeituraPlay{% endblock %}
 
 {% block content %}
-<div class="d-flex justify-content-center">
-  <div class="card card-auth p-4 shadow-sm" style="max-width:420px; width:100%;">
-    <div class="text-center">
-      <img src="{{ url_for('static', filename='img/logo-leituraplay.png') }}" alt="logo" height="72">
-      <h1 class="mt-3 title-main">Entrar</h1>
-      <p class="text-muted">Entre na sua conta para continuar</p>
+<div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+        <div class="card p-4 shadow-lg border-0">
+            <h2 class="h4 text-center fw-bold text-roxo-texto mb-4">Acesse sua Conta</h2>
+            
+            <!-- A CORREÇÃO ESTÁ AQUI: o endpoint agora é 'login' -->
+            <form action="{{ url_for('login') }}" method="post" class="mt-3">
+                <div class="mb-3">
+                    <label for="email" class="form-label small text-muted">Email</label>
+                    <input type="email" class="form-control rounded-pill" id="email" name="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="senha" class="form-label small text-muted">Senha</label>
+                    <input type="password" class="form-control rounded-pill" id="senha" name="senha" required>
+                </div>
+                
+                <div class="d-grid gap-2 mt-4">
+                    <button type="submit" class="btn btn-roxo">Entrar</button>
+                </div>
+            </form>
+
+            <p class="text-center mt-3 small text-muted">
+                Ainda não tem conta? <a href="{{ url_for('cadastro') }}" class="text-decoration-none text-roxo-texto fw-bold">Cadastre-se aqui</a>
+            </p>
+        </div>
     </div>
-
-    <form action="{{ url_for('processar_login') }}" method="post" class="mt-3">
-      <div class="mb-3 input-with-icon">
-        <i class="fa-solid fa-envelope"></i>
-        <input name="email" type="email" class="form-control" placeholder="Email" required>
-      </div>
-      <div class="mb-3 input-with-icon">
-        <i class="fa-solid fa-key"></i>
-        <input name="senha" type="password" class="form-control" placeholder="Senha" required>
-      </div>
-      <button class="btn btn-roxo w-100 mb-2" type="submit"><i class="fa-solid fa-right-to-bracket me-2"></i>Entrar</button>
-
-      <a href="{{ url_for('cadastro') }}" class="btn btn-outline-dark w-100 rounded-pill">Criar conta</a>
-
-      <div class="text-center mt-3">
-        <button type="button" class="btn btn-google w-100">
-          <img src="{{ url_for('static', filename='img/google-logo.png') }}" alt="Google" width="20" class="me-2"> Continuar com o Google
-        </button>
-      </div>
-    </form>
-  </div>
 </div>
 {% endblock %}
