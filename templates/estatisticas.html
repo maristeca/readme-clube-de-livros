@@ -12,6 +12,7 @@
                     <div class="card-body">
                         <i class="fa-solid fa-book-open fs-2 text-roxo-texto mb-2"></i>
                         <h5 class="card-title text-purple fw-bold">Livros Lidos</h5>
+                        <!-- Exibe o valor de 'lidos' do dicionário 'stats' -->
                         <p class="card-text fs-3 fw-bold">{{ stats.lidos }}</p>
                     </div>
                 </div>
@@ -22,7 +23,7 @@
                     <div class="card-body">
                         <i class="fa-solid fa-bullhorn fs-2 text-roxo-texto mb-2"></i>
                         <h5 class="card-title text-purple fw-bold">Indicações Feitas</h5>
-                        <!-- CORRIGIDO: Usa a variável 'indicacoes' do dicionário 'stats' -->
+                        <!-- Exibe o valor de 'indicacoes' do dicionário 'stats' -->
                         <p class="card-text fs-3 fw-bold">{{ stats.indicacoes }}</p>
                     </div>
                 </div>
@@ -33,9 +34,10 @@
                     <div class="card-body">
                         <i class="fa-solid fa-trophy fs-2 text-roxo-texto mb-2"></i>
                         <h5 class="card-title text-purple fw-bold">Medalhas</h5>
-                        <!-- Corrigido para exibir a contagem de medalhas -->
+                        <!-- Exibe a contagem de medalhas (tamanho da lista) -->
                         <p class="card-text fs-3 fw-bold">{{ stats.medalhas | length }}</p>
                         <div class="mt-2">
+                            <!-- Loop para exibir o nome de cada medalha -->
                             {% for medalha in stats.medalhas %}
                                 <span class="badge bg-warning text-dark me-1 mb-1">{{ medalha }}</span>
                             {% endfor %}
